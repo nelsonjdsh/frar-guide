@@ -1,0 +1,165 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-image: url("tu_imagen_de_fondo.jpg"); /* Agrega tu imagen de fondo */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  padding: 20px; /* Agrega un espacio alrededor del contenido */
+  border-radius: 10px; /* Esquinas redondeadas para un mejor aspecto */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para resaltar el contenedor */
+}
+
+h1,
+p {
+  color: #fff;
+  margin: 0; /* Elimina el margen predeterminado */
+}
+
+button {
+  background-color: #e44d26;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Agrega la animación */
+.animate-heart {
+  animation: beatHeart 1s ease-in-out, fadeOut 1s ease-in-out 1s;
+}
+
+@keyframes beatHeart {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Nuevas reglas para la animación de corazones y textos aleatorios */
+.heart-fall {
+  position: absolute;
+  font-size: 24px;
+  color: #ff3333;
+  animation: rising 6s linear infinite; /* Duración aumentada a 6s */
+}
+
+.text-fall {
+  position: absolute;
+  font-size: 18px;
+  color: #ff3333;
+  animation: rising 6s linear infinite; /* Duración aumentada a 6s */
+}
+
+@keyframes rising {
+  0% {
+    transform: translateY(100vh);
+  }
+
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+#bird,
+#rose {
+  position: fixed;
+  z-index: 2;
+}
+
+#bird-container {
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 0;
+  display: none; /* Initially hide the bird and rose */
+}
+
+#bird img,
+#rose img {
+  width: 50px; /* Adjust the size as needed */
+  height: auto;
+}
+
+#rose {
+  display: none;
+}
+
+.heart-cursor {
+  position: absolute;
+  font-size: 24px;
+  color: #ff3333; /* Red color */
+  pointer-events: none; /* Ensure the hearts don't interfere with clicks */
+  animation: pulse 1s linear infinite, sparkles 0.5s ease-out alternate infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes sparkles {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate(2px, -2px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(4px, 0);
+    opacity: 0.2;
+  }
+  75% {
+    transform: translate(2px, 2px);
+    opacity: 0.5;
+  }
+}
